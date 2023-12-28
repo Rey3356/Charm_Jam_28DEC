@@ -324,9 +324,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140cacaf938afb440bcb1af217898bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idelStateTimeData: 
-  searshingStateTimeData: 
+  playerManager: {fileID: 488768654}
+  idelStateTimeData: 020000000300000004000000
+  searshingStateTimeData: 030000000400000005000000
   timeOutData: 
+  speed: 0
+  checkingRedius: 0
+  charm:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &258369110
 Transform:
   m_ObjectHideFlags: 0
@@ -540,7 +546,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3bd5f7cf3c440428840aad52913c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundsCollider: {fileID: 566699854}
+  boundsColliderMin: {fileID: 978138352}
+  boundsColliderMax: {fileID: 566699854}
+  isDebug: 0
 --- !u!1 &566699852
 GameObject:
   m_ObjectHideFlags: 0
