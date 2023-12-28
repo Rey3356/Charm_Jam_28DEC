@@ -5,6 +5,5 @@
         Idel,
         Searching,
         Found,
-        ReSearching
     }
 }
