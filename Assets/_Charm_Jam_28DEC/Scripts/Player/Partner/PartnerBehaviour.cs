@@ -19,6 +19,7 @@ public partial class PartnerBehaviour : MonoBehaviour
     [SerializeField] private LayerMask charm;
 
     [Header("Player Follow Data")]
+    [Min(10)]
     [SerializeField] private float playerFollowAfterRedius = 0;
     [SerializeField] private float playerFollowSpeed = 5f;
 

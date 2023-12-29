@@ -356,10 +356,12 @@ MonoBehaviour:
   searshingStateTimeData: 030000000400000005000000
   timeOutData: 030000000400000005000000
   speed: 5
-  checkingRedius: 3
+  checkingRedius: 4
   charm:
     serializedVersion: 2
     m_Bits: 128
+  playerFollowAfterRedius: 10
+  playerFollowSpeed: 5
 --- !u!4 &258369110
 Transform:
   m_ObjectHideFlags: 0
@@ -592,7 +594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &566699853
 Transform:
   m_ObjectHideFlags: 0
@@ -845,7 +847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &978138351
 Transform:
   m_ObjectHideFlags: 0
