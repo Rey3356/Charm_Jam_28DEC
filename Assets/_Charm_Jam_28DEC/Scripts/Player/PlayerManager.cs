@@ -18,11 +18,11 @@ public class PlayerManager : MonoBehaviour
     public Vector2 GetPartnerBoundsArea()
     {
 
-        float minX = boundsColliderMin.bounds.size.x / 2;
-        float minY = boundsColliderMin.bounds.size.y / 2;
+        float minX = (boundsColliderMin.bounds.size.x / 2);
+        float minY = (boundsColliderMin.bounds.size.y / 2);
 
-        float maxX = boundsColliderMax.bounds.size.x / 2;
-        float maxY = boundsColliderMax.bounds.size.y / 2;
+        float maxX = (boundsColliderMax.bounds.size.x / 2);
+        float maxY = (boundsColliderMax.bounds.size.y / 2); 
 
         //assignXRandomValue
         bool isPosX = Random.Range(0, 2) == 1 ? true : false;
@@ -43,7 +43,7 @@ public class PlayerManager : MonoBehaviour
             randomY = Random.Range(-minY, -maxY);
 
 
-        Vector2 randomPos = new Vector2(randomX, randomY);
+        Vector2 randomPos = new Vector2(randomX + transform.position.x, randomY + transform.position.y);
 
         if (isDebug)
         {
