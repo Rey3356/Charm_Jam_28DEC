@@ -23,11 +23,19 @@ public partial class PartnerBehaviour : MonoBehaviour
     [SerializeField] private float playerFollowAfterRedius = 0;
     [SerializeField] private float playerFollowSpeed = 5f;
 
+    [Header("CharmData")]
+    [SerializeField] private CharmSO charmILike;
+    [SerializeField] private CharmSO charmIDontLike;
+
+    private Charm curruntCharmObject;
+
     private float randomTimeToStayInIdel = 0;
     private float randomTimeToStayInSearching = 0;
     private float randomTimeToWaitInFound = 0;
 
     private Vector2 movePos;
+
+
 
     private void Start()
     {
@@ -45,6 +53,8 @@ public partial class PartnerBehaviour : MonoBehaviour
     {
         ManagePartnerState();
     }
+
+    #region StateManage
 
     private void ManagePartnerState()
     {
@@ -66,7 +76,6 @@ public partial class PartnerBehaviour : MonoBehaviour
                 FollowPlayer();
                 break;
         }
-        Debug.Log(curruntPartnerState);
     }
 
     private void IdelState()
@@ -102,16 +111,18 @@ public partial class PartnerBehaviour : MonoBehaviour
                 else
                 {
                     //use that charm 
-                    IfWeFoundCharm();
+                    IfWeFoundCharm(charmObject);
                 }
             }
         }
     }
 
-    private void IfWeFoundCharm()
+    private void IfWeFoundCharm(Collider2D charmContainer)
     {
         if (CanSelectCharm())
         {
+            curruntCharmObject = charmContainer.GetComponent<Charm>();
+            curruntCharmObject.SetCharmSO(charmILike);
             curruntPartnerState = PartnerState.Found;
         }
         else
@@ -139,6 +150,7 @@ public partial class PartnerBehaviour : MonoBehaviour
         Debug.Log(randomTimeToWaitInFound);
         if (randomTimeToWaitInFound < 0)
         {
+            curruntCharmObject.SetCharmSO(charmIDontLike);
             curruntPartnerState = PartnerState.Idel;
             randomTimeToWaitInFound = (float)timeOutData[Random.Range(0, timeOutData.Count)];
         }
@@ -169,5 +181,11 @@ public partial class PartnerBehaviour : MonoBehaviour
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, playerFollowAfterRedius);
+    }
+    #endregion
+
+    public bool IsGood(CharmSO charmSO)
+    {
+        return charmILike == charmSO;
     }
 }

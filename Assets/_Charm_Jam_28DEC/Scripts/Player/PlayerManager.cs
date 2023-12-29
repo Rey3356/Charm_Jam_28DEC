@@ -2,10 +2,34 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    [Header("OnInteraction")]
+    [SerializeField] private Charm curruntCharm = null;
+    [SerializeField] private Transform charmHolder;
+    [Header("PartnerData")]
     [SerializeField] private BoxCollider2D boundsColliderMin;
     [SerializeField] private BoxCollider2D boundsColliderMax;
 
     [SerializeField] private bool isDebug;
+
+    public bool HasCharmSO()
+    {
+        return curruntCharm != null;
+    }
+
+    public void SetCharm(Charm charm)
+    {
+        curruntCharm = charm; 
+    }
+
+    public Transform GetCharmHolder()
+    {
+        return charmHolder;
+    }
+
+    public Charm GetCham()
+    {
+        return curruntCharm;
+    }
 
     private void Start()
     {
