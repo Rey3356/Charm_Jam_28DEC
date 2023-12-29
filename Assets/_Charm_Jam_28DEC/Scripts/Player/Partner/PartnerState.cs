@@ -5,5 +5,6 @@
         Idel,
         Searching,
         Found,
+        FollowPlayer
     }
 }

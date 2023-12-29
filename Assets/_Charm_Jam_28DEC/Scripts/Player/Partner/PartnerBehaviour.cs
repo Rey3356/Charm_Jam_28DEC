@@ -18,13 +18,16 @@ public partial class PartnerBehaviour : MonoBehaviour
     [SerializeField] private float checkingRedius = 0;
     [SerializeField] private LayerMask charm;
 
+    [Header("Player Follow Data")]
+    [SerializeField] private float playerFollowAfterRedius = 0;
+    [SerializeField] private float playerFollowSpeed = 5f;
+
     private float randomTimeToStayInIdel = 0;
     private float randomTimeToStayInSearching = 0;
     private float randomTimeToWaitInFound = 0;
 
     private Vector2 movePos;
 
-    #region Core
     private void Start()
     {
         InitState_And_Behaviour();
@@ -48,18 +51,23 @@ public partial class PartnerBehaviour : MonoBehaviour
         {
             case PartnerState.Idel:
                 IdelState();
+                CanFollowPlayer();
                 break;
             case PartnerState.Searching:
                 SearchCharm();
+                CanFollowPlayer();
                 break;
             case PartnerState.Found:
                 FoundState();
+                CanFollowPlayer();
+                break;
+            case PartnerState.FollowPlayer:
+                FollowPlayer();
                 break;
         }
+        Debug.Log(curruntPartnerState);
     }
-    #endregion
 
-    #region IdelState
     private void IdelState()
     {
         randomTimeToStayInIdel -= Time.deltaTime;
@@ -70,34 +78,26 @@ public partial class PartnerBehaviour : MonoBehaviour
             randomTimeToStayInSearching = searshingStateTimeData[Random.Range(0, searshingStateTimeData.Count)];
         }
     }
-    #endregion
 
-    #region SearchState
     private void SearchCharm()
     {
         transform.position = Vector2.MoveTowards(transform.position, movePos, speed * Time.deltaTime);
 
         float distance = Vector3.Distance(transform.position, movePos);
-        //if we near to the location
         if (distance < .1)
         {
-            //than we decrease the time
             randomTimeToStayInSearching -= Time.deltaTime;
 
-            //try to get the charm
             Collider2D charmObject = Physics2D.OverlapCircle(transform.position, checkingRedius, charm);
 
-            //if time is over 
             if (randomTimeToStayInSearching < 0)
             {
 
-                //and in that time if we not got charm then we gonna reash for new location
                 if (charmObject == null)
                 {
                     Debug.Log("Search Again!");
                     GetNewPositionToMove();
                 }
-                //if we get that we go in this function 
                 else
                 {
                     //use that charm 
@@ -109,7 +109,6 @@ public partial class PartnerBehaviour : MonoBehaviour
 
     private void IfWeFoundCharm()
     {
-        //if prob is high than we can select this charm else we need new position
         if (CanSelectCharm())
         {
             curruntPartnerState = PartnerState.Found;
@@ -126,15 +125,13 @@ public partial class PartnerBehaviour : MonoBehaviour
         movePos = playerManager.GetPartnerBoundsArea();
         randomTimeToStayInSearching = searshingStateTimeData[Random.Range(0, searshingStateTimeData.Count)];
     }
+
     private bool CanSelectCharm()
     {
-        //i have to go with lower value cause it's taking too much time when we can't able to find charm quiqly if you want than you can increase the value of probability or random.range
         const int probability = 2;
         return Random.Range(0, 5) > probability;
     }
-    #endregion
 
-    #region FoundState
     private void FoundState()
     {
         randomTimeToWaitInFound -= Time.deltaTime;
@@ -145,11 +142,31 @@ public partial class PartnerBehaviour : MonoBehaviour
             randomTimeToWaitInFound = (float)timeOutData[Random.Range(0, timeOutData.Count)];
         }
     }
-    #endregion
-    
+
+    private void CanFollowPlayer()
+    {
+        float diff = Vector3.Distance(playerManager.transform.position, transform.position);
+        if (diff > playerFollowAfterRedius)
+        {
+            curruntPartnerState = PartnerState.FollowPlayer;
+        }
+    }
+
+    private void FollowPlayer()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, playerManager.transform.position, playerFollowSpeed * Time.deltaTime);
+        float distance = Vector3.Distance(transform.position, playerManager.transform.position);
+        if (distance < playerFollowAfterRedius)
+        {
+            curruntPartnerState = PartnerState.Idel;
+        }
+    }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, checkingRedius);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, playerFollowAfterRedius);
     }
 }
