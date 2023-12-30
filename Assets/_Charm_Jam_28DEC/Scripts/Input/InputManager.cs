@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -12,8 +13,9 @@ public class InputManager : MonoBehaviour
     private const string YAXIS = "Vertical";
     private const string XAXIS = "Horizontal";
 
-    private Vector2 movementVector;
 
+    private Vector2 movementVector;
+    [SerializeField] Animator PlayerAnimator;
     private void Update()
     {
         MovementInput();
@@ -30,10 +32,18 @@ public class InputManager : MonoBehaviour
 
     private void MovementInput()
     {
+        
         movementVector = new Vector2(Input.GetAxisRaw(XAXIS), Input.GetAxisRaw(YAXIS)).normalized;
+
         if (movementVector != Vector2.zero)
         {
             OnMove?.Invoke(this, movementVector);
+            PlayerAnimator.SetBool("Walking", true);
         }
+        else
+        {
+            PlayerAnimator.SetBool("Walking", false);
+        }
+       
     }
 }

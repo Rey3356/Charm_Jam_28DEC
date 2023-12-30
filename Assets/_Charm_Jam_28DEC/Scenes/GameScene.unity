@@ -134,6 +134,14 @@ PrefabInstance:
       propertyPath: mylooks.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: a35d64a189b483c489a363c13f0d899b, type: 3}
+    - target: {fileID: 2067821717347296172, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
+      propertyPath: myAnimations.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067821717347296172, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
+      propertyPath: myAnimations.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 024ae048f0067d341bb32526cff82b99, type: 2}
     - target: {fileID: 3567215052206218765, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
       propertyPath: m_Name
       value: Charm (3)
@@ -329,7 +337,7 @@ Transform:
   m_GameObject: {fileID: 258369108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.36, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 970652006}
@@ -352,10 +360,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 1.75}
+    newSize: {x: 1.5, y: 1.75}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -436,12 +444,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1231352913, guid: 2872fd2bfeec3ca4c96ec9f74edc1743, type: 3}
+  m_Sprite: {fileID: -759579084, guid: 2872fd2bfeec3ca4c96ec9f74edc1743, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1.5, y: 1.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -457,7 +465,7 @@ Animator:
   m_GameObject: {fileID: 313677889}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fce4aa6bfb55e8a4898832c2641dbf85, type: 2}
+  m_Controller: {fileID: 9100000, guid: e6553346cad1e3b41b07e947f7f2e1ea, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -531,7 +539,7 @@ Transform:
   m_GameObject: {fileID: 488768648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.62, y: -1.55, z: 0}
-  m_LocalScale: {x: 4.6063, y: 4.6063, z: 4.6063}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 313677890}
@@ -778,6 +786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 970652006}
   - component: {fileID: 970652007}
+  - component: {fileID: 970652008}
   m_Layer: 8
   m_Name: PartnerVisuals
   m_TagString: Untagged
@@ -841,7 +850,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  m_Sprite: {fileID: 1692058283, guid: 244f985d7b2d3224f835a3fd3c0abc7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -852,6 +861,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &970652008
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970652005}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 17887da7211e5054f97ad0442851eef8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &978138350
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,6 +968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79557113e1f1c7c4b816bb95c678a45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerAnimator: {fileID: 313677892}
 --- !u!4 &1146668546
 Transform:
   m_ObjectHideFlags: 0
@@ -965,6 +995,14 @@ PrefabInstance:
       propertyPath: mylooks.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: a35d64a189b483c489a363c13f0d899b, type: 3}
+    - target: {fileID: 2067821717347296172, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
+      propertyPath: myAnimations.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067821717347296172, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
+      propertyPath: myAnimations.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 024ae048f0067d341bb32526cff82b99, type: 2}
     - target: {fileID: 3567215052206218765, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
       propertyPath: m_Name
       value: Charm (2)
@@ -1013,6 +1051,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7616219757360361816, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ee9c48cbbacf79c4ea63e591c68f436d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
 --- !u!4 &1208808800 stripped
@@ -1619,6 +1661,14 @@ PrefabInstance:
       propertyPath: mylooks.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: a35d64a189b483c489a363c13f0d899b, type: 3}
+    - target: {fileID: 2067821717347296172, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
+      propertyPath: myAnimations.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067821717347296172, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
+      propertyPath: myAnimations.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 024ae048f0067d341bb32526cff82b99, type: 2}
     - target: {fileID: 3567215052206218765, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
       propertyPath: m_Name
       value: Charm (1)
@@ -1667,6 +1717,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7616219757360361816, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ee9c48cbbacf79c4ea63e591c68f436d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
 --- !u!4 &1834826635 stripped
@@ -1805,6 +1859,18 @@ PrefabInstance:
       propertyPath: mylooks.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: a35d64a189b483c489a363c13f0d899b, type: 3}
+    - target: {fileID: 2067821717347296172, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
+      propertyPath: myAnimations.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067821717347296172, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
+      propertyPath: myAnimations.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 024ae048f0067d341bb32526cff82b99, type: 2}
+    - target: {fileID: 2067821717347296172, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
+      propertyPath: myAnimations.Array.data[3]
+      value: 
+      objectReference: {fileID: 7400000, guid: e420ea09fbcdf2748bdf8ec64899c6c4, type: 2}
     - target: {fileID: 3567215052206218765, guid: 4a2ccaf4e4e1e7e43937aa6bb261a31a, type: 3}
       propertyPath: m_Name
       value: Charm
