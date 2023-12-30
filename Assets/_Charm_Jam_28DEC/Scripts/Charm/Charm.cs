@@ -5,25 +5,25 @@ using UnityEngine;
 public class Charm : MonoBehaviour
 {
     [Header("LooksData")]
-    [SerializeField] private Sprite[] mylooks;
-    [SerializeField] private SpriteRenderer obj;
+    [SerializeField] private AnimationClip[] myAnimations;
+    [SerializeField] private Animator objAnimator;
+
     [Header("CharmData")]
     public CharmSO charmData;
     private Collider2D charmCollider;
 
     private void Awake()
     {
-        charmCollider = GetComponent<BoxCollider2D>();
+        charmCollider = GetComponent<Collider2D>();
     }
     private void Start()
     {
         ChangeLook();
-
     }
 
     private void ChangeLook()
     {
-        obj.sprite = mylooks[Random.Range(0, mylooks.Length)];
+        objAnimator.Play(myAnimations[Random.Range(0, myAnimations.Length)].name);
     }
 
     public CharmSO GetCharmSO()

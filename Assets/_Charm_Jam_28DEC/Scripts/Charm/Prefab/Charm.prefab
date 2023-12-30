@@ -72,12 +72,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cef3150e3e6284ea56117b15002c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mylooks:
-  - {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
-  - {fileID: 21300000, guid: a04ecc9d5e12d5d449077414eb86635e, type: 3}
-  - {fileID: 21300000, guid: 70632ddfe8e71b04b8f90ef7e29a9e98, type: 3}
-  - {fileID: 21300000, guid: dae33700bd23f76409a80bf78fdb8a42, type: 3}
-  obj: {fileID: 5235211682226052039}
+  myAnimations:
+  - {fileID: 7400000, guid: 336cd646b6effc744b9f237d1c3c5884, type: 2}
+  - {fileID: 7400000, guid: e420ea09fbcdf2748bdf8ec64899c6c4, type: 2}
+  objAnimator: {fileID: 7616219757360361816}
   charmData: {fileID: 11400000, guid: 833400b09eebd854480b5c27be5b3723, type: 2}
 --- !u!1 &6505747828805512991
 GameObject:
@@ -89,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4026539682353216467}
   - component: {fileID: 5235211682226052039}
+  - component: {fileID: 7616219757360361816}
   m_Layer: 7
   m_Name: Visuals
   m_TagString: Untagged
@@ -163,3 +162,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7616219757360361816
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505747828805512991}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee9c48cbbacf79c4ea63e591c68f436d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
